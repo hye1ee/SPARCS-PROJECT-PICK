@@ -1,23 +1,25 @@
 import React, {useEffect, useState} from 'react';
+import Pixel from './Pixel.js';
 
 function Pixels(props) {
-    const [pixelcolor,setPixelColor] = useState('#FFFFFF');
 
-    useEffect(()=>{
-        setPixelColor('#FFFFFF');
-    },[props.init[0]]);
-
-    const changepixelcolor = () => {
-        
-        setPixelColor(props.color);
-        console.log(pixelcolor);
+    const pixels = [];
+    for(let i=0 ; i<props.size ; i++){
+        pixels.push(<Pixel size={props.size} init={props.init} color={props.color}/>);
     }
 
     
     return(
-        <>
-            <div onClick={changepixelcolor} style={{backgroundColor: pixelcolor, cursor:'pointer'}}>box</div>
-        </>
+        <div style={{display : 'flex', flexDirection :'row'}}>
+            {pixels.map((pixel)=>{
+                return(
+                    <>
+                        {pixel}
+                    </>
+                );
+
+            })}
+        </div>
     );
 
 }
