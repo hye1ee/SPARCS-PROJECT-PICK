@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom'
 import Palette from './Palette';
+import Canvas from './Canvas';
 
 function Draw(props) {
-    const [color, setColor] = useState('red');
+    const [color, setColor] = useState(['red','#ff0000']);
+    const [init, setInit] = useState(false);
 
     return(
         <div>
@@ -12,8 +14,12 @@ function Draw(props) {
             <div> canvas size : {props.size}</div>
 
             <Palette setColor={setColor}/>
-            <div>current color : {color}</div>
+            <br />
+            <div style={{backgroundColor : color[1]}}>current color : {color[0]}</div>
+            <br />
+            <Canvas color={color[1]} size={props.size} init={[init,setInit]}/>
 
+            <button onClick={()=>{setInit(!init);}}>Init Canvas</button>
             <Link to ='/universe'>
                 <button>
                     Export
