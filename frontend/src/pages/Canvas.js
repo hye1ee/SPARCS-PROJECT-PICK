@@ -2,16 +2,25 @@ import React, {useEffect, useState} from 'react';
 import Pixel from './Pixel';
 
 function Canvas(props) {
-    //props : color={color[1]} init={[init,setInit]} pixeldata={[pixeldata,setPixelData]}
 
+    const changedata = (row, col) => {
+        let predata = [...props.pixeldata];
+        predata[row][col] = props.color;
+        props.setPixelData(predata);
+        console.log(props.pixeldata);
+    }
 
     return(
         <div>
             {props.pixeldata.map((pixels, row)=>{
                     return(
-                        <div>
+                        <div key={row}>
                             {pixels.map((pixel, col) =>{
-                                    return(<Pixel row={row} col={col} color={props.pixeldata[row][col]} pixeldata={props.pixeldata} setPixelData={props.setPixelData} key={[row,col]} />);
+                                    return(
+                                        <div key={[row,col]} onClick={()=>{changedata(row,col)}} style={{backgroundColor: props.pixeldata[row][col], cursor:'pointer'}}>
+                                            box
+                                        </div>
+                                    );
                                 })
                             }   
                         </div>

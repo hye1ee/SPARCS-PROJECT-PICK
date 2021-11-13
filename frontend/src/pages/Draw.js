@@ -10,18 +10,18 @@ function Draw(props) {
 
     //make new pixeldata and initialize it
     useEffect(()=>{
-        const predata = [];
+        let predata = [];
         for(let i=0 ; i<props.size ; i++){
-            const prerow = [];
+            let prerow = [];
             for(let j=0 ; j<props.size ; j++){
-                prerow.push('#FFFFFF');
+                prerow.push('#ffffff');
             }
             predata.push(prerow);
         }
         setPixelData(predata);
         setInit(false);
     },[init])
-    
+
 
     return(
         <div>
@@ -33,7 +33,7 @@ function Draw(props) {
             <br />
             <div style={{backgroundColor : color[1]}}>current color : {color[0]}</div>
             <br />
-            <Canvas color={color[1]} init={[init,setInit]} pixeldata={pixeldata} setPixelData={setPixelData}/>
+            <Canvas color={color[1]} pixeldata={pixeldata} setPixelData={setPixelData}/>
 
             <button onClick={()=>{setInit(true);}}>Init Canvas</button>
             <Link to ='/universe'>
