@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import Pixel from './Pixel';
+import './Style.css';
+
 
 function Canvas(props) {
 
@@ -10,15 +11,31 @@ function Canvas(props) {
         console.log(props.pixeldata);
     }
 
+    const corner = (row, col) => {
+        const len = props.pixeldata.length-1;
+        if(row===0 && col===0){
+            return "top-left";
+        }else if(row===0 && col===len){
+            return "top-right";
+        }else if(row===len && col===0){
+            return "bottom-left";
+        }else if(row===len && col===len){
+            return "bottom-right";
+        }else{
+            return "";
+        }
+
+    }
+
     return(
-        <div>
+        <div className="canvas">
             {props.pixeldata.map((pixels, row)=>{
                     return(
-                        <div key={row}>
+                        <div className="pixels" key={row}>
                             {pixels.map((pixel, col) =>{
                                     return(
-                                        <div key={[row,col]} onClick={()=>{changedata(row,col)}} style={{backgroundColor: props.pixeldata[row][col], cursor:'pointer'}}>
-                                            box
+                                        <div className={`pixel ${corner(row,col)}`} key={[row,col]} onClick={()=>{changedata(row,col)}} style={{backgroundColor: props.pixeldata[row][col], cursor:'pointer'}}>
+                                        
                                         </div>
                                     );
                                 })
