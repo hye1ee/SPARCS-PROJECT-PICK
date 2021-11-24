@@ -8,16 +8,13 @@ import Draw from './pages/Draw.js';
 
 function App() {
 
-  const [name,setName] = useState('');
-  const [size,setSize] = useState(5);
-
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={Start} />
         <Route exact path='/universe' component={Main} />
-        <Route exact path='/create' render={()=><Create setName={setName} setSize={setSize} />} />
-        <Route exact path='/draw' render={()=><Draw name={name} size={size} />} />
+        <Route exact path='/create' component={Create} />
+        <Route exact path='/draw' component={Draw} />
       </Switch>
     </BrowserRouter>
   );

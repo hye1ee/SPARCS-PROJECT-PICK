@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom'
 import Palette from './Palette';
 import Canvas from './Canvas';
 import './Style.css';
+import { useBeforeunload } from 'react-beforeunload';
 
 function Draw(props) {
+    useBeforeunload((event)=>event.preventDefault());
+
+    const name = props.location.state.name;
+    const size = props.location.state.size;
+
     // manage current clicked color
     const [color, setColor] = useState(['blue','#5B8DE1']);
     // manage canvas init
@@ -15,9 +21,9 @@ function Draw(props) {
     // make canvas init & make it all white
     useEffect(()=>{
         let predata = [];
-        for(let i=0 ; i<props.size ; i++){
+        for(let i=0 ; i<size ; i++){
             let prerow = [];
-            for(let j=0 ; j<props.size ; j++){
+            for(let j=0 ; j<size ; j++){
                 prerow.push(['white','#fffefb']);
             }
             predata.push(prerow);
@@ -30,8 +36,8 @@ function Draw(props) {
     return(
         <div className="drawpage">
             <div>this is draw page</div>
-            <div> hello! "{props.name}"</div>
-            <div> canvas size : {props.size}</div>
+            <div> hello! "{name}"</div>
+            <div> canvas size : {size}</div>
 
             <Palette setColor={setColor} color={color}/>
             <Canvas color={color} pixeldata={pixeldata} setPixelData={setPixelData}/>

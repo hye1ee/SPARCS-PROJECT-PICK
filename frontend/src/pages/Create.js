@@ -2,19 +2,16 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 
 function Create(props) {
-    const [init,setInit] = useState(false);
+    const [name,setName] = useState('');
+    const [size,setSize] = useState(0);
 
     const changeName = (evt) => {
-        props.setName(evt.target.value);
+        setName(evt.target.value);
     }
     const changeSize = (evt) => {
-        props.setSize(evt.target.value);
+        setSize(evt.target.value);
     }
-    useEffect(()=>{
-        props.setName('');
-        props.setSize(0);
-    },[init]);
-
+    
     return(
         <div>
             <div>this is create page</div>
@@ -23,8 +20,13 @@ function Create(props) {
             <div>size</div>
             <input onChange={(evt)=>changeSize(evt)} />
 
-            <Link to='/draw'>
-                <button onClick={()=>{setInit(true);}}>
+            <Link to={{ pathname : '/draw',
+                        state : {
+                            name : name,
+                            size : size
+                        }
+            }}>
+                <button>
                     Draw
                 </button>
             </Link>
