@@ -9,7 +9,7 @@ import Draw from './pages/Draw.js';
 function App() {
 
   const [name,setName] = useState('');
-  const [size,setSize] = useState(0);
+  const [size,setSize] = useState(5);
 
   return (
     <BrowserRouter>

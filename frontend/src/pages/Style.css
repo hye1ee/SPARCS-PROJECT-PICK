@@ -1,11 +1,69 @@
+.drawpage{
+    background-color: #222733;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+.palette{
+    display : flex;
+    flex-direction: row;
+    width : 90vmin;
+    margin : 0 auto 6vmin auto;
+    justify-content: space-between;
+}
+.colorchip{
+    cursor: pointer;
+    height: min(8vw, 8vh);
+    width: min(8vw, 8vh);
+    border-radius : 50% 50% 50% 50%;
+    margin : auto;
+}
+.red{
+    background-color: #ff4141;
+}
+.orange{
+    background-color: #fc6404;
+}
+.yellow{
+    background-color: #fcd444;
+}
+.green{
+    background-color: #029658;
+}
+.blue{
+    background-color: #5B8DE1;
+}
+.purple{
+    background-color: #a069e5;
+}
+.brown{
+    background-color: #977857;
+}
+.white{
+    background-color: #fffefb;
+}
+.black{
+    background-color: #1f1f1f;
+}
+.clicked{
+    cursor: pointer;
+    height: min(10vw, 10vh);
+    width: min(10vw, 10vh);
+    border-radius : 50% 50% 50% 50%;
+}
+
+
+
 .canvas{
     display : flex;
     flex-direction: column;
     align-items: center;
     width : min(50vw, 50vh);
     height: min(50vw, 50vh);
+    margin : 0 auto;
 }
-
 .pixels{
     width : 100%;
     height : 100%;
@@ -13,12 +71,11 @@
     flex-direction: row;
 
 }
-
 .pixel{
     width : 100%;
 }
 .pixel:hover{
-    box-shadow: inset 0px 0px 2vh rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0px 0px 2ch rgba(0, 0, 0, 0.4);
 }
 .pixel.top-left{
     border-radius : 30% 0 0 0;
