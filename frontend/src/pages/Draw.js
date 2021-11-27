@@ -4,6 +4,7 @@ import Palette from './Palette';
 import Canvas from './Canvas';
 import './Style.css';
 import { useBeforeunload } from 'react-beforeunload';
+import axios from 'axios';
 
 function Draw(props) {
     useBeforeunload((event)=>event.preventDefault());
@@ -32,6 +33,24 @@ function Draw(props) {
         setInit(false);
     },[init])
 
+    // add pixelart to db
+    const exportItem = () => {
+        console.log('export!');
+        axios.post('http://localhost:8080/pixel', {
+            name : name,
+            comment : '',
+            size : size,
+            data : [...pixeldata]
+        })
+        // if adding success then initialize varaibles
+        .then(()=> {
+            setPixelData([]);
+            setColor(['blue','#5B8DE1']);
+            setInit(true);
+        });
+
+    };
+
 
     return(
         <div className="drawpage">
@@ -44,7 +63,7 @@ function Draw(props) {
 
             <button onClick={()=>{setInit(true);}}>Init Canvas</button>
             <Link to ='/universe'>
-                <button>
+                <button onClick={exportItem}>
                     Export
                 </button>
             </Link>
