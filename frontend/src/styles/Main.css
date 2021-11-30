@@ -1,0 +1,34 @@
+@font-face{
+    font-family : 'Gilroy';
+    src : url('../public/Gilroy.otf') format('opentype')
+}
+@font-face{
+    font-family : 'Gilroy-Light';
+    src : url('../public/Gilroy-Light.otf') format('opentype')
+}
+
+.mainpage{
+    background-color: #202632;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width : 100vw;
+    height: 100vh;
+}
+
+.img_main{
+    object-fit: scover;
+    width: 35vmin;
+    height: 35vmin;
+    padding : 0 0 5vmin 0;
+}
+
+.button_left{
+    padding-left: 5vmin;
+
+}
+.button_right{
+    padding-right: 5vmin;
+
+}

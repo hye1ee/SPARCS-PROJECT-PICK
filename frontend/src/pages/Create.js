@@ -13,7 +13,7 @@ function Create(props) {
     }
     
     return(
-        <div>
+        <div className="createpage">
             <div>this is create page</div>
             <div>name</div>
             <input onChange={(evt)=>changeName(evt)} />

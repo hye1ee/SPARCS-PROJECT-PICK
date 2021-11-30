@@ -1,0 +1,47 @@
+@font-face{
+    font-family : 'Gilroy';
+    src : url('../public/Gilroy.otf') format('opentype')
+}
+@font-face{
+    font-family : 'Gilroy-Light';
+    src : url('../public/Gilroy-Light.otf') format('opentype')
+}
+
+.button_component{
+    transition: all 0.2s;
+
+    font-family: 'Gilroy-Light';
+    font-size: 3vmin;
+    font-weight: 800;
+    letter-spacing: 0.2vmin;
+    color: #fffefb;
+
+    background-color: #202632;;
+    border : none;
+    border-radius: 4vmin;
+    box-shadow: 0px 0px 2ch rgba(0, 0, 0, 0.4);
+
+    width : 30vmin;
+    height : 8vmin;
+}
+.button_component:hover{
+    transition: all 0.2s;
+    cursor: pointer;
+    
+    background-color: #fffefb;
+    box-shadow: 0px 0px 2ch rgba(0, 0, 0, 0.4);
+    
+
+    font-family: 'Gilroy-Light';
+    font-size: 3vmin;
+    font-weight: 900;
+    letter-spacing: 0.2vmin;
+    color: #202632;;
+
+}
+.left{
+    padding-left: 20vmin;
+}
+.right{
+    padding-right: 20vmin;
+}

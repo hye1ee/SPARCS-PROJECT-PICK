@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './Style.css';
+import '../styles/Draw.css';
 
 
 function Canvas(props) {
