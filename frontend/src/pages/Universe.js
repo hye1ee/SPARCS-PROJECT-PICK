@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import ToMain from './ToMain.js';
+import Item from './Item.js';
 import axios from 'axios';
+import '../styles/Universe.css'
 
 function Universe() {
 
@@ -16,32 +18,15 @@ function Universe() {
         })
     },[]);
 
-    const pixelItems = items.map((item)=>{
-        return(
-            <div>
-                {item.name}
-            </div>
-        );
-    });
 
     return(
-        <div>
-            this is universe page
-            <br />
-            <Link to='/'>
-                <button>
-                    go back to start page
-                </button>
-            </Link>
-            <div>
-                {pixelItems}
+        <div className="universepage">
+            <ToMain/>
+            <div className="item_list">
+                {items.map((item)=>{
+                    return(<Item name={item.name} data={item.data}/>);
+                })}
             </div>
-            <br />
-            <Link to='/create'>
-                <button>
-                    create!
-                </button>
-            </Link>
 
         </div>
     );

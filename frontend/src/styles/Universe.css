@@ -1,0 +1,16 @@
+.universepage{
+    background-color: #202632;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width : 100vw;
+    height: 100vh;
+}
+
+.item_list{
+    width : 67vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

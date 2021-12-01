@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom'
+
 import Palette from './Palette';
 import Canvas from './Canvas';
+import ToMain from './ToMain';
+import Button from './Button';
 import '../styles/Draw.css';
 import { useBeforeunload } from 'react-beforeunload';
 import axios from 'axios';
@@ -54,20 +56,16 @@ function Draw(props) {
 
     return(
         <div className="drawpage">
-            <div>this is draw page</div>
-            <div> hello! "{name}"</div>
-            <div> canvas size : {size}</div>
+            <ToMain/>
 
             <Palette setColor={setColor} color={color}/>
-            <Canvas color={color} pixeldata={pixeldata} setPixelData={setPixelData}/>
-
-            <button onClick={()=>{setInit(true);}}>Init Canvas</button>
-            <br/>
-            <Link to ='/universe' style={{textDecoration :'none'}}>
-                <button className="button" onClick={exportItem}>
-                    Export
-                </button>
-            </Link>
+            <div className="drawbox">
+                <Canvas color={color} pixeldata={pixeldata} setPixelData={setPixelData}/>
+                <div className="drawitems">
+                    <button onClick={()=>{setInit(true);}}>Init Canvas</button>
+                    <Button click={exportItem} link="/universe" name="export" />
+                </div>
+            </div>
             
         </div>
     );

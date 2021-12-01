@@ -11,37 +11,76 @@
     transition: all 0.2s;
 
     font-family: 'Gilroy-Light';
-    font-size: 3vmin;
+    font-size: 1.6vw;
     font-weight: 800;
-    letter-spacing: 0.2vmin;
+    letter-spacing: 0.1vw;
     color: #fffefb;
 
     background-color: #202632;;
     border : none;
-    border-radius: 4vmin;
-    box-shadow: 0px 0px 2ch rgba(0, 0, 0, 0.4);
+    border-radius: 2.5vw;
+    box-shadow: 0px 0px 3vmin rgba(0, 0, 0, 0.4);
 
-    width : 30vmin;
-    height : 8vmin;
+    width : 16.5vw;
+    height : 4.7vw;
 }
 .button_component:hover{
     transition: all 0.2s;
     cursor: pointer;
     
     background-color: #fffefb;
-    box-shadow: 0px 0px 2ch rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 3vmin rgba(0, 0, 0, 0.4);
     
 
     font-family: 'Gilroy-Light';
-    font-size: 3vmin;
-    font-weight: 900;
-    letter-spacing: 0.2vmin;
+    font-size: 1.6vw;
+    font-weight: 800;
+    letter-spacing: 0.1vw;
     color: #202632;;
 
 }
 .left{
-    padding-left: 20vmin;
+    padding-left: 10vw;
 }
 .right{
-    padding-right: 20vmin;
+    padding-right: 10vw;
+}
+
+.input{
+    transition: all 0.2s;
+
+    font-family: 'Gilroy';
+    font-size: 1.8vw;
+    letter-spacing: 0.2vmin;
+    color: #fffefb;
+    text-align: center;
+
+    background-color: #202632;;
+    border : none;
+    border-radius: 2.5vw;
+    box-shadow: inset 0px 0px 2vmin rgba(0, 0, 0, 0.4);
+
+    width : 16.5vw;
+    height : 4.7vw;
+
+    padding : auto 5vmin ;
+}
+.input:focus{
+    outline:none;
+}
+.input::placeholder{
+    font-family: 'Gilroy-Light';
+    font-size: 1.6vw;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.2vmin;
+    color: #2C3744;
+
+}
+.input.true{
+    border: solid 1vmin #fffefb;
+}
+.inputbox{
+    display: flex;
+    flex-direction: row ;
 }

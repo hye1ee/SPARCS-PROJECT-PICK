@@ -17,18 +17,4 @@
     height: 100vh;
 }
 
-.img_main{
-    object-fit: scover;
-    width: 35vmin;
-    height: 35vmin;
-    padding : 0 0 5vmin 0;
-}
 
-.button_left{
-    padding-left: 5vmin;
-
-}
-.button_right{
-    padding-right: 5vmin;
-
-}

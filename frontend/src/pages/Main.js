@@ -2,6 +2,7 @@ import React from 'react';
 import main_logo from '../public/main_logo.svg'
 import Button from './Button.js'
 import '../styles/Main.css';
+import '../styles/Image.css';
 
 function Main() {
     return(

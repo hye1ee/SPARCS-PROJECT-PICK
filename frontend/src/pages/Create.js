@@ -1,36 +1,48 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import Button from './Button.js'
+import Input from './Input.js'
+import ToMain from './ToMain.js'
+import '../styles/Create.css'
 
 function Create(props) {
     const [name,setName] = useState('');
-    const [size,setSize] = useState(0);
+    const [size,setSize] = useState();
+    const message ='Merry \n Christmas*-*';
+    let error = 'Please enter your name and size';
 
-    const changeName = (evt) => {
-        setName(evt.target.value);
+    const [nameError, setNameError] = useState(true);
+    const [sizeError, setSizeError] = useState(true);
+
+    const data = {
+        name : name,
+        size : size
     }
-    const changeSize = (evt) => {
-        setSize(evt.target.value);
+
+    if(nameError){
+        error = 'Username should be alphanumeric characters';
+    }else if(sizeError){
+        error = 'Size should be a number under 15';
+    }else if(nameError||sizeError){
+        error = 'Please enter your name and size';
+    }else if(name==='' || size===0){
+        error = 'Please enter your name and size';
+    }else{
+        error = `Let's Create!`;
     }
     
     return(
         <div className="createpage">
-            <div>this is create page</div>
-            <div>name</div>
-            <input onChange={(evt)=>changeName(evt)} />
-            <div>size</div>
-            <input onChange={(evt)=>changeSize(evt)} />
+            <Button position="left" link="/draw" name="create" data={data}/>
+            <div className="createbox">
+                <ToMain />
+                <div className="message_create">{message}</div>
+                <div className="message_error">{error}</div>
+ 
+                <Input error={setNameError} message="username" onChange={setName} />
+                <Input error={setSizeError} message="size" onChange={setSize} />
 
-            <Link to={{ pathname : '/draw',
-                        state : {
-                            name : name,
-                            size : size
-                        }
-            }}>
-                <button>
-                    Draw
-                </button>
-            </Link>
-
+            </div>
+            <div className="emptybox"></div>
         </div>
     );
 

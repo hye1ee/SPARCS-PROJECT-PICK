@@ -5,14 +5,15 @@ import '../styles/Button.css';
 function Button(props) {
     return( 
         <div className={props.position}>
-            <Link to = {props.link} style={{textDecoration :'none'}}>
-            <button className="button_component">
-                {props.name}
-            </button>
+            <Link to = {{ pathname : props.link, state : props.data }} style={{textDecoration :'none'}}>
+                <button className="button_component" onClick={props.click}>
+                    {props.name}
+                </button>
             </Link>
         </div>
         
     );
 
-}
+};
+
 export default Button;

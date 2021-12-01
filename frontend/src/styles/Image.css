@@ -1,0 +1,23 @@
+.img_main{
+    object-fit: cover;
+    width: 35vmin;
+    height: 35vmin;
+    padding : 0 0 5vmin 0;
+}
+.img_warning{
+    transition: all 0.2s;
+
+    object-fit: cover;
+    width: 10vmin;
+    height: 10vmin;
+}
+.img_logotxt{
+    transition: all 0.2s;
+    
+    object-fit: cover;
+    height: 5vh;
+
+}
+.tomain{
+    margin : 9vh auto 3vh;
+}
