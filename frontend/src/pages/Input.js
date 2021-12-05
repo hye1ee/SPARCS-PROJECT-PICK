@@ -34,8 +34,14 @@ function Input(props) {
             const numeric = /^[0-9]+$/;
              // if size is in valid range
             if(value.match(numeric)){
-                props.error(false);
-                setWarn(false);
+                if(parseInt(value)<30){
+                    props.error(false);
+                    setWarn(false);
+                }else{
+                    props.error(true);
+                    setWarn(true);
+                }
+                
             }else{
                 props.error(true);
                 setWarn(true);
@@ -47,7 +53,8 @@ function Input(props) {
 
     return(
         <div className="inputbox">
-            <input className={`${warn} input`} type='text' placeholder={props.message} onChange={(evt)=>changeValue(evt)} />
+            {warn===true?<div className="img_warning"></div>:<></>}
+            <input maxlength='10' className={`${warn} input`} type='text' placeholder={props.message} onChange={(evt)=>changeValue(evt)} />
             {warn===true?<img className="img_warning" src={Warning}/>:<></>}
         </div>
         

@@ -40,10 +40,10 @@
 
 }
 .left{
-    padding-left: 10vw;
+    margin : auto 0 auto 12vw;
 }
 .right{
-    padding-right: 10vw;
+    margin : auto 12vw auto 0;
 }
 
 .input{
@@ -69,18 +69,22 @@
     outline:none;
 }
 .input::placeholder{
-    font-family: 'Gilroy-Light';
+    font-family: 'Gilroy';
     font-size: 1.6vw;
     font-weight: bold;
     text-align: center;
     letter-spacing: 0.2vmin;
-    color: #2C3744;
+    color: #3e4750;
 
 }
 .input.true{
-    border: solid 1vmin #fffefb;
+    border: solid 0.4vw #fffefb;
 }
 .inputbox{
     display: flex;
     flex-direction: row ;
+    align-items: center;
+    justify-content: center;
+
+    height : 6.8vw;
 }
