@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Download from '../public/icon_download.svg';
 import Delete from '../public/icon_delete.svg';
 import axios from 'axios';
+import {exportComponentAsPNG} from 'react-component-export-image';
 import '../styles/Item.css';
 import '../styles/Draw.css';
 
@@ -9,13 +10,19 @@ function Item(props) {
 
     const name = props.name;
     const data = props.data;
+    const itemRef = useRef();
 
     const [mouse, setMouse] = useState(false);
-
-    const itemDownload = () =>{
-
+    
+    const itemDownload = () => {
+        const filename = `pixele_${name}.png`
+        exportComponentAsPNG(itemRef,{
+            fileName: filename
+        });
     }
+
     const itemDelete = () => {
+
         // delete request need 'data : {}' attribute
         // get params at server 'req.body.{}' 
         axios.delete("/pixel/delete",{data :{name:name}})
@@ -44,7 +51,7 @@ function Item(props) {
                 {mousehover()}
             </div>
             <div className="item_box">
-                <div className="item_data">
+                <div className='item_data' ref={itemRef}>
                     {data.map((pixels, row)=>{
                             return(
                                 <div className="item_pixels" key={row}>
