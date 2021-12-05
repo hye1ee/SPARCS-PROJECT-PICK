@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react'
 import Button from './Button.js'
 import Input from './Input.js'
 import ToMain from './ToMain.js'
@@ -6,33 +6,38 @@ import '../styles/Create.css'
 
 function Create(props) {
     const [name,setName] = useState('');
-    const [size,setSize] = useState();
+    const [size,setSize] = useState('');
     const message ='Merry \n Christmas*-*';
     let error = 'Please enter your name and size';
 
     const [nameError, setNameError] = useState(true);
     const [sizeError, setSizeError] = useState(true);
+    const [dupError, setDupError] = useState(false);
 
-    const data = {
+    const info = {
         name : name,
         size : size
     }
 
-    if(nameError){
+    if(nameError==='dup'){
+        error = 'Username is already taken';
+    }else if(nameError){
         error = 'Username should be alphanumeric characters';
-    }else if(sizeError){
+    }
+    else if(sizeError){
         error = 'Size should be a number under 15';
-    }else if(nameError||sizeError){
-        error = 'Please enter your name and size';
-    }else if(name==='' || size===0){
+    }
+    else if(name==='' || size===''){
         error = 'Please enter your name and size';
     }else{
         error = `Let's Create!`;
     }
     
+
+    
     return(
         <div className="createpage">
-            <Button position="left" link="/draw" name="create" data={data}/>
+            <Button position="left" link="/draw" name="create" data={info} disabled={nameError||sizeError||dupError}/>
             <div className="createbox">
                 <ToMain />
                 <div className="message_create">{message}</div>

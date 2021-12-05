@@ -2,6 +2,7 @@ import {React, useState} from 'react';
 import '../styles/Button.css';
 import '../styles/Image.css';
 import Warning from '../public/warning.svg'
+import axios from 'axios'
 
 function Input(props) {
     const [warn, setWarn] = useState(false);
@@ -13,11 +14,20 @@ function Input(props) {
         if(props.message === 'username'){ // check username validity
             const alphanumeric = /^[0-9a-zA-Z]+$/;
             if(value.match(alphanumeric)){ // if username is alphanumeric value
-                props.error(false);
-                setWarn(false);
+                axios.get(`/pixel/exist/${value}`)
+                .then((result)=>{
+                    if(result.data===true){
+                        props.error('dup');
+                        setWarn(true);
+                    }
+                    else{
+                        props.error(false);
+                        setWarn(false);
+                    }
+                });
             }else{
-                props.error(true);
                 setWarn(true);
+                props.error(true);
             }
 
         }else{ // check size validity

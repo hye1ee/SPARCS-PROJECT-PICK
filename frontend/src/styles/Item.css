@@ -10,6 +10,30 @@
 .item_component{
     position : relative;
 }
+.item_hover{
+    position: absolute;
+    
+}
+.item_menu{
+    background-color: #2D343D;
+    width: 21vw;
+    height: 21vw;
+    opacity: 0.8;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+.icon{
+    width: 4vw;
+    height: 4vw;
+}
+.icon:hover{
+    cursor : pointer;
+}
 
 .item_box{
     background-color: #2D343D;
@@ -19,7 +43,7 @@
     align-items: center;
 
     box-shadow: 1px 1px 2vw rgba(0, 0, 0, 0.4);
-    margin : 2vmin 0;
+    margin : 0 0 2vmin 0;
 }
 
 
@@ -43,11 +67,10 @@
 
 
 .item_name{
+    height : 5vw;
     font-family: 'Gilroy-Light';
-    font-size: 1.5vw;
+    font-size: 2vw;
     font-weight: 900;
     letter-spacing: 0.1vw;
     color: #fffefb;
-
-    padding : 0 0 1.8vw 0;
 }

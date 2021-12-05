@@ -37,8 +37,7 @@ function Draw(props) {
 
     // add pixelart to db
     const exportItem = () => {
-        console.log('export!');
-        axios.post('http://localhost:8080/pixel', {
+        axios.post("/pixel/post", {
             name : name,
             comment : '',
             size : size,

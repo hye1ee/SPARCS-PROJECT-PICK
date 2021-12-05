@@ -1,5 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import Download from '../public/icon_download.svg';
+import Delete from '../public/icon_delete.svg';
+import axios from 'axios';
 import '../styles/Item.css';
 import '../styles/Draw.css';
 
@@ -7,9 +9,40 @@ function Item(props) {
 
     const name = props.name;
     const data = props.data;
+
+    const [mouse, setMouse] = useState(false);
+
+    const itemDownload = () =>{
+
+    }
+    const itemDelete = () => {
+        // delete request need 'data : {}' attribute
+        // get params at server 'req.body.{}' 
+        axios.delete("/pixel/delete",{data :{name:name}})
+        .then(()=>{
+            props.setReload(true);
+        });
+
+    }
+
+    const mousehover = () => {
+        if(mouse===true){
+            return(
+                <div className="item_menu">
+                    <img className="icon" src={Download} onClick={itemDownload}/>
+                    <img className="icon" src={Delete} onClick={itemDelete}/>
+                </div>
+            );
+        }else{
+            return(<></>);
+        }
+    }
+
     return(
-        <div className="item_component">
-        
+        <div className="item_component" onMouseEnter={()=>setMouse(true)} onMouseLeave={()=>setMouse(false)}>
+            <div className="item_hover">
+                {mousehover()}
+            </div>
             <div className="item_box">
                 <div className="item_data">
                     {data.map((pixels, row)=>{

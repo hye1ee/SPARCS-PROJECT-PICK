@@ -23,7 +23,30 @@ function add(name, comment, size, data, callback){
     });
 }
 
+function remove(name, callback){
+    pixelModel.deleteOne({name:name},(error)=>{
+        if(error){
+            console.log('error');
+        }else{
+            callback();
+        } 
+    });
+}
+
+function check(name, callback){
+    pixelModel.findOne({name:name},(error, result)=>{
+        if(error){
+            console.log('error');
+            callback([]);
+        }else{
+            callback(result);
+        }
+    })
+}
+
 module.exports = {
     getAll,
-    add
+    add,
+    remove,
+    check
 };

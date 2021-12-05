@@ -13,10 +13,10 @@ function Palette(props) {
     
     return(
         <div className = "palette">
-                {colorlist.map((color)=>{
+                {colorlist.map((color,idx)=>{
                     return(
                         // if color is clicked make it large
-                        <div className = {`${color[0]===props.color[0]?"clicked":""} colorchip ${color[0]}`} onClick={()=>changeColor(color)} >
+                        <div className = {`${color[0]===props.color[0]?"clicked":""} colorchip ${color[0]}`} onClick={()=>changeColor(color)} key={idx} >
                         </div>
                     );
                 })
