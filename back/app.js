@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const app = express();
 const port = 8080;
 
-mongoose.connect("mongodb://root:jayden8125!!@ssal.sparcs.org:33374?authSource=admin",{
+mongoose.connect("mongodb://root:{"replace password here"}@ssal.sparcs.org:33374?authSource=admin",{
     useNewUrlParser : true,
     useUnifiedTopology : true
 });
